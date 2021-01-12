@@ -6,4 +6,6 @@
 #define SCREEN_TITLE "Startfield"
 #define GLOBAL_FPS 60
 
+#define MAX_ENTITIES 40
+
 #endif /* _STAR_CONFIG_H */

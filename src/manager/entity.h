@@ -2,9 +2,8 @@
 #define _STAR_ENTITY_H
 
 #include <stdint.h>
-
-#include <stdint.h>
 #include "raylib.h"
+#include "../../config.h"
 
 typedef enum type_t {
   TYPE_DEFAULT = 0,
@@ -21,8 +20,10 @@ typedef struct Entity_t {
 } Entity_t;
 
 typedef struct Storage_t {
-  Entity_t entities;
+  Entity_t entities[MAX_ENTITIES];
   type_t last;
 } Storage_t;
+
+void initEntity(void);
 
 #endif /* _STAR_ENTITY_H */
