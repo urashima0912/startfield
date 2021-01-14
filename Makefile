@@ -380,8 +380,8 @@ ifeq ($(PLATFORM),PLATFORM_WEB)
 endif
 
 # Define all source files required
-PROJECT_SOURCE_FILES ?= main.c              \
-                        manager/entity.c
+PROJECT_SOURCE_FILES ?= main.c                  \
+                        src/manager/entity.c    \
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
@@ -417,7 +417,9 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     endif
     ifeq ($(PLATFORM_OS),LINUX)
 		find . -type f -executable -delete
-		rm -fv *.o
+		rm -rfv *.o
+		rm -fv src/manager/*.o
+		rm -fv src/system/*.o
     endif
     ifeq ($(PLATFORM_OS),OSX)
 		find . -type f -perm +ugo+x -delete

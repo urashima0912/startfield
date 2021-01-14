@@ -1,15 +1,14 @@
 #ifndef _STAR_ENTITY_H
 #define _STAR_ENTITY_H
 
-#include <stdint.h>
 #include "raylib.h"
 #include "../../config.h"
 
 typedef enum type_t {
-  TYPE_DEFAULT = 0,
-  TYPE_START,
-  TYPE_DEAD,
-  TYPE_INVALID
+  TYPE_DEFAULT  = 0x00,
+  TYPE_START    = 0x10,
+  TYPE_DEAD     = 0x40,
+  TYPE_INVALID  = 0x80
 } type_t;
 
 typedef struct Entity_t {
@@ -24,6 +23,10 @@ typedef struct Storage_t {
   type_t last;
 } Storage_t;
 
-void initEntity(void);
-
+void        initEntity(void);
+Entity_t    *createEntity(void);
+void        destroyEntity(Entity_t *e);
+void        setDeadEntity(Entity_t *e);
+void        forAllEntities(void (*ptrFunc)(Entity_t *));
+void        updateEntities(void);
 #endif /* _STAR_ENTITY_H */
