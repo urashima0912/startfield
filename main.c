@@ -2,6 +2,7 @@
 #include "config.h"
 #include "src/manager/entity.h"
 #include "src/system/physics.h"
+#include "src/system//render.h"
 
 int main(void) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
@@ -10,9 +11,7 @@ int main(void) {
     initEntity();
     while (!WindowShouldClose()) {
         updatePhysics();
-        BeginDrawing();
-        ClearBackground(BLACK);
-        EndDrawing();
+        updateRender();
     }
     CloseWindow();
 

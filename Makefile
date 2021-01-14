@@ -383,6 +383,7 @@ endif
 PROJECT_SOURCE_FILES ?= main.c                      \
                         src/manager/entity.c        \
                         src/system/physics.c        \
+                        src/system/render.c         \
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
