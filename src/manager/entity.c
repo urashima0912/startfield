@@ -51,5 +51,9 @@ void updateEntities(void) {
     }
 }
 
+int32_t numFreeEntities(void) {
+    return MAX_ENTITIES - numEntities;
+}
+
 
 

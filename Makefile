@@ -380,10 +380,11 @@ ifeq ($(PLATFORM),PLATFORM_WEB)
 endif
 
 # Define all source files required
-PROJECT_SOURCE_FILES ?= main.c                      \
-                        src/manager/entity.c        \
-                        src/system/physics.c        \
-                        src/system/render.c         \
+PROJECT_SOURCE_FILES ?= main.c                          \
+                        src/manager/entity.c            \
+                        src/system/physics.c            \
+                        src/system/render.c             \
+                        src/system/generator.c          \
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))

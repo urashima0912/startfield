@@ -3,10 +3,11 @@
 
 #include "raylib.h"
 #include "../../config.h"
+#include <stdint.h>
 
 typedef enum type_t {
   TYPE_DEFAULT  = 0x00,
-  TYPE_START    = 0x10,
+  TYPE_STAR     = 0x10,
   TYPE_DEAD     = 0x40,
   TYPE_INVALID  = 0x80
 } type_t;
@@ -29,4 +30,5 @@ void        destroyEntity(Entity_t *e);
 void        setDeadEntity(Entity_t *e);
 void        forAllEntities(void (*ptrFunc)(Entity_t *));
 void        updateEntities(void);
+int32_t     numFreeEntities(void);
 #endif /* _STAR_ENTITY_H */
