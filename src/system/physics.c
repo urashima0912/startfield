@@ -7,10 +7,10 @@ void updateOneEntity(Entity_t *e) {
     if (newPosX < 0) {
         setDeadEntity(e);
     } else {
-        e->position = newPosX;
+        e->position.x = newPosX;
     }
 }
 
 void updatePhysics(void) {
-    forAllEntities(&updatePhysics);
+    forAllEntities(&updateOneEntity);
 }

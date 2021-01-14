@@ -1,5 +1,6 @@
 #include "entity.h"
 #include <string.h>
+#include <stdint.h>
 
 Storage_t store;
 Entity_t *nextFreeEntity;
@@ -22,7 +23,7 @@ Entity_t *createEntity(void) {
 void destroyEntity(Entity_t *e) {
     Entity_t *prevEntity = nextFreeEntity - 1;
     if (e != prevEntity) {
-        memccpy(e, prevEntity, sizeof(Entity_t));
+        memcpy(e, prevEntity, sizeof(Entity_t));
     }
     prevEntity->type = TYPE_INVALID;
     nextFreeEntity = prevEntity;
@@ -34,17 +35,17 @@ void setDeadEntity(Entity_t *e) {
 
 void forAllEntities(void (*ptrFunc)(Entity_t *)) {
     Entity_t *entities = store.entities;
-    for (entities != TYPE_INVALID) {
-        ptrFunc(&entities);
+    while (entities->type != TYPE_INVALID) {
+        ptrFunc(entities);
         ++entities;
     }
 }
 
 void updateEntities(void) {
     Entity_t *entities = store.entities;
-    for (entities->type != TYPE_INVALID) {
+    while (entities->type != TYPE_INVALID) {
         if (entities->type == TYPE_DEAD) {
-            destroyEntity(&entities);
+            destroyEntity(entities);
         }
         ++entities;
     }
