@@ -4,7 +4,7 @@
 
 void updateRenderOneEntity(Entity_t *e) {
     if (e->type == TYPE_STAR) {
-        DrawPixelV(e->position, RAYWHITE);
+        DrawPixelV(e->position, e->color);
     }
 }
 

@@ -14,8 +14,13 @@ void generateEntity(void) {
     Entity_t *e = createEntity();
     memcpy(e, &baseEntity, sizeof(Entity_t));
     e->position.x = GetScreenWidth();
-    e->velocity.x = GetRandomValue(1, 5);
-    e->position.y = GetRandomValue(10, GetScreenHeight() - 10);
+    e->velocity.x = GetRandomValue(1, 20);
+    e->position.y = GetRandomValue(5, GetScreenHeight() - 5);
+    if (e->velocity.x > 0 && e->velocity.x < 5) {
+        e->color = GRAY;
+    } else {
+        e->color = WHITE;
+    }
 }
 
 void updateGenerator(void) {
