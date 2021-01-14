@@ -27,6 +27,7 @@ void destroyEntity(Entity_t *e) {
     }
     prevEntity->type = TYPE_INVALID;
     nextFreeEntity = prevEntity;
+    --numEntities;
 }
 
 void setDeadEntity(Entity_t *e) {

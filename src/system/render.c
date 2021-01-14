@@ -3,7 +3,9 @@
 #include <raylib.h>
 
 void updateRenderOneEntity(Entity_t *e) {
-    DrawPixelV(e->position, RAYWHITE);
+    if (e->type == TYPE_STAR) {
+        DrawPixelV(e->position, RAYWHITE);
+    }
 }
 
 void updateRender(void) {

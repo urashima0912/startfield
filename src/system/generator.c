@@ -13,6 +13,7 @@ const Entity_t baseEntity = {
 void generateEntity(void) {
     Entity_t *e = createEntity();
     memcpy(e, &baseEntity, sizeof(Entity_t));
+    e->position.x = GetScreenWidth();
     e->velocity.x = GetRandomValue(1, 5);
     e->position.y = GetRandomValue(10, GetScreenHeight() - 10);
 }
