@@ -14,7 +14,7 @@ void generateEntity(void) {
     Entity_t *e = createEntity();
     memcpy(e, &baseEntity, sizeof(Entity_t));
     e->position.x = GetScreenWidth();
-    e->velocity.x = GetRandomValue(1, 20);
+    e->velocity.x = GetRandomValue(1, 15);
     e->position.y = GetRandomValue(5, GetScreenHeight() - 5);
     if (e->velocity.x > 0 && e->velocity.x < 5) {
         e->color = GRAY;
